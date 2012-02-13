@@ -1,0 +1,16 @@
+---
+# This is a sample database file for the Sequel ORM
+:development: &defaults
+  :adapter: postgres
+  :database: addon_test_development
+  :username: postgres
+  :password:
+  :max_connections: 20
+
+:test:
+  <<: *defaults
+  :database: addon_test_test
+
+:production:
+  <<: *defaults
+  :database: addon_test_production
