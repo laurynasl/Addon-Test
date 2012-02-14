@@ -22,9 +22,12 @@ end
 
 gem 'jquery-rails'
 
-gem 'rspec-rails'
+gem 'rspec', '2.8.0'
+gem 'rspec-rails', '2.8.1'
 gem 'pg'
-gem 'sequel'
+gem 'sequel', :require => ['sequel', 'sequel/extensions/migration']
+gem 'sequel_rails3', :git => "git://github.com/gucki/sequel_rails3.git"
+gem "hornsby",       :git => "git://github.com/laurynasl/hornsby.git"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

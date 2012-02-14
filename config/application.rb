@@ -6,6 +6,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
+require "sequel_rails3/railtie"
 # require "rails/test_unit/railtie"
 
 if defined?(Bundler)

@@ -1,0 +1,3 @@
+orm: sequel
+filename: hornsby_scenarios.rb
+tables_to_delete: []

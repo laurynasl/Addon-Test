@@ -1,0 +1,3 @@
+specwatch.set_executable 'rspec'
+
+# vim:set filetype=ruby :
