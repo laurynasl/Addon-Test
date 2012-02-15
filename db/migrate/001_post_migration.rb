@@ -7,8 +7,8 @@ class PostMigration < Sequel::Migration
       text :body, :null => false
       varchar :ip_address, :null => false
 
-      timestamp :created_at, :null => false, :default => :now[]
-      timestamp :updated_at, :null => false, :default => :now[]
+      timestamp :created_at, :null => false, :default => 'now()'.lit
+      timestamp :updated_at, :null => false, :default => 'now()'.lit
     end
 
     self << "CREATE LANGUAGE plpgsql"
