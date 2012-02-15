@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post])
-    @post.ip_address = request.env['REMOTE_ADDR']
+    @post.ip_address = user_ip_address
     if @post.save
       redirect_to root_url
     else
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   end
 
   def check_ip_address
-    if @post.ip_address != request.env['REMOTE_ADDR']
+    if @post.ip_address != user_ip_address
       render :text => 'unauthorized: wrong ip address', :status => 403
     end
   end

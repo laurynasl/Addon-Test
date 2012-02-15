@@ -9,7 +9,7 @@
     <div style="border: 1px solid blue; margin: 3px;">
       <%= raw post.body %>
     </div>
-    <% if post.ip_address == request.env['REMOTE_ADDR'] %>
+    <% if post.ip_address == user_ip_address %>
       <%= link_to 'Edit', edit_post_path(post) %>
     <% end %>
   </div>
