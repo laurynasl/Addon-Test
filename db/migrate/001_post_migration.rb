@@ -11,14 +11,14 @@ class PostMigration < Sequel::Migration
       timestamp :updated_at, :null => false, :default => 'now()'.lit
     end
 
-    self << "CREATE LANGUAGE plpgsql"
+    #self << "CREATE LANGUAGE plpgsql"
     self << File.read('db/triggers/posts.updated_at.sql')
   end
 
   def down
     drop_table :posts
     #self << "DROP function set_updated_at"
-    self << "DROP LANGUAGE plpgsql CASCADE"
+    #self << "DROP LANGUAGE plpgsql CASCADE"
   end
 
 
