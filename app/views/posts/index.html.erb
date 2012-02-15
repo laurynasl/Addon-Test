@@ -14,3 +14,13 @@
     <% end %>
   </div>
 <% end %>
+
+<table>
+  <caption>Request Headers</caption>
+  <% request.env.each do |key, value| %>
+    <tr>
+      <td><%= key %></td>
+      <td><%= value %></td>
+    </tr>
+  <% end %>
+</table>
