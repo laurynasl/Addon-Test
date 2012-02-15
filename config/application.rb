@@ -16,7 +16,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-require 'lib/sequel_timestamps'
+require File.expand_path('../../lib/sequel_timestamps', __FILE__)
 Sequel::Model.plugin :validation_class_methods
 
 module AddonTest
