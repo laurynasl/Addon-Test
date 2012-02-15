@@ -16,6 +16,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+require 'lib/sequel_timestamps'
 Sequel::Model.plugin :validation_class_methods
 
 module AddonTest
