@@ -1,1 +1,13 @@
-new
+<h1>New</h1>
+
+<%= form_for @post do |f| %>
+  Title:
+  <br />
+  <%= f.text_field :title %>
+  <br />
+  Body: (HTML)
+  <br />
+  <%= f.text_area :body %>
+  <br />
+  <%= f.submit "Create" %>
+<% end %>

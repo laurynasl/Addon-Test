@@ -39,6 +39,17 @@ describe PostsController, "CREATE" do
     post.ip_address.should == '0.0.0.0'
     response.should redirect_to(root_path)
   end
+
+  it "should render form again on validation failure" do
+    hornsby_scenario
+    post :create, :post => {
+      :title => '',
+      :body => 'body'
+    }
+    post = assigns(:post)
+    post.id.should == nil
+    response.should be_success
+  end
 end
 
 describe PostsController, "EDIT" do
@@ -73,5 +84,14 @@ describe PostsController, "UPDATE" do
     @post.reload
     @post.title.should == 'h1'
     @post.body.should == 'text'
+  end
+
+  it "should render form again on validation failure" do
+    hornsby_scenario :post
+    put :update, :id => @post.id, :post => {
+      :title => '',
+      :body => 'text'
+    }
+    response.should be_success
   end
 end

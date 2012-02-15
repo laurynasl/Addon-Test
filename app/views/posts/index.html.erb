@@ -1,1 +1,16 @@
-index
+<h1>index</h1>
+
+<%= link_to "New post", new_post_path %>
+<br />
+
+<% @posts.each do |post| %>
+  <div style="border: 1px solid green; margin: 10px auto; width: 80%;">
+    <h2><%= link_to post.title, post %></h2>
+    <div style="border: 1px solid blue; margin: 3px;">
+      <%= raw post.body %>
+    </div>
+    <% if post.ip_address == request.env['REMOTE_ADDR'] %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+    <% end %>
+  </div>
+<% end %>

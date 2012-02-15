@@ -8,22 +8,28 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
     @post = Post.new(params[:post])
     @post.ip_address = request.env['REMOTE_ADDR']
-    @post.save
-    #self.response_body = ''
-    redirect_to root_url
+    if @post.save
+      redirect_to root_url
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @post.update(params[:post].slice(:title, :body))
-    redirect_to root_url
+    if @post.update(params[:post].slice(:title, :body))
+      redirect_to root_url
+    else
+      render :edit
+    end
   end
 
   private

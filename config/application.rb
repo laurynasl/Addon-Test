@@ -16,6 +16,8 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+Sequel::Model.plugin :validation_class_methods
+
 module AddonTest
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

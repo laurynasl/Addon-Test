@@ -12,6 +12,15 @@ describe Post do
 
   it "should be valid" do
     @post.save
-    puts 'post was saved'
+  end
+
+  it "should require title" do
+    @post.title = nil
+    @post.should_not be_valid
+  end
+
+  it "should require body" do
+    @post.body = nil
+    @post.should_not be_valid
   end
 end
