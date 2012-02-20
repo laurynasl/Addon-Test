@@ -17,6 +17,7 @@ if defined?(Bundler)
 end
 
 require File.expand_path('../../lib/sequel_timestamps', __FILE__)
+require File.expand_path('../../lib/tolq_middleware', __FILE__)
 Sequel::Model.plugin :validation_class_methods
 
 module AddonTest
@@ -65,5 +66,7 @@ module AddonTest
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.middleware.use Tolq::Middleware
   end
 end
